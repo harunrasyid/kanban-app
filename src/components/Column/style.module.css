@@ -7,3 +7,23 @@
   border-radius: 8px;
   padding: 8px;
 }
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addButton {
+  all: unset;
+  color: var(--color-neutral-10);
+  background: var(--color-chart);
+  padding: 0.3rem;
+  border-radius: 4px;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background: var(--color-neutral-50);
+}
