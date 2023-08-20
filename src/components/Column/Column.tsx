@@ -1,14 +1,26 @@
 import styles from "./style.module.css";
 import { Card } from "../Card/Card.tsx";
+import { State, TaskType } from "../../types/Types.ts";
+import { stateTitle } from "../../utils/column-utils.ts";
+import { useStore } from "../../store/store.ts";
+import { shallow } from "zustand/shallow";
+
 interface Props {
-  title: string;
+  state: State;
 }
 
-export const Column = ({ title }: Props) => {
+export const Column = ({ state }: Props) => {
+  const tasks: TaskType[] = useStore(
+    (store) => store.tasks.filter((task) => task.state === state),
+    shallow,
+  );
+
   return (
     <div className={styles.column}>
-      <p>{title}</p>
-      <Card title={"Task"} />
+      <p>{stateTitle(state)}</p>
+      {tasks.map((task) => {
+        return <Card task={task} />;
+      })}
     </div>
   );
 };

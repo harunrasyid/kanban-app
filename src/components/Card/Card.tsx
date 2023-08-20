@@ -1,19 +1,18 @@
 import styles from "./style.module.css";
+import { TaskType } from "../../types/Types.ts";
+import { stateTitle } from "../../utils/column-utils.ts";
 interface Props {
-  title: string;
+  task: TaskType;
 }
 
-// TODO: temporary
-const STATUS: string = "TO DO"
-
-export const Card = ({ title }: Props) => {
-  return <div className={styles.card}>
-    <div>
-      {title}
+export const Card = ({ task }: Props) => {
+  return (
+    <div className={styles.card}>
+      <div>{task.title}</div>
+      <div className={styles.bottomContainer}>
+        <div></div>
+        <div className={styles.statusContainer}>{stateTitle(task.state)}</div>
+      </div>
     </div>
-    <div className={styles.bottomContainer}>
-      <div></div>
-      <div className={styles.statusContainer}>{STATUS}</div>
-    </div>
-  </div>;
+  );
 };
