@@ -1,12 +1,13 @@
 import "./App.css";
 import { Column } from "./components/Column/Column.tsx";
+import { State } from "./types/Types.ts";
 
 function App() {
   return (
     <div className="App">
-      <Column title={"TO DO"} />
-      <Column title={"DOING"} />
-      <Column title={"DONE"} />
+      <Column state={State.Todo} />
+      <Column state={State.Doing} />
+      <Column state={State.Done} />
     </div>
   );
 }
