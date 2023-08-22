@@ -4,6 +4,8 @@ import { State, TaskType } from "../../types/Types.ts";
 import { stateTitle } from "../../utils/column-utils.ts";
 import { useStore } from "../../store/store.ts";
 import { shallow } from "zustand/shallow";
+import useAddModal from "../../hooks/useAddModal.ts";
+import { AddModal } from "../AddModal/AddModal.tsx";
 
 interface Props {
   state: State;
@@ -16,22 +18,31 @@ export const Column = ({ state }: Props) => {
   );
   const addTasks = useStore((store) => store.addTasks);
 
+  const { open, showModal, closeModal, title, setTitle } = useAddModal();
+
   const handleClickAddTask = () => {
-    // TODO: change when the new task form ready to use
-    addTasks({ title: "New Task", state });
+    addTasks({ title: title, state });
+    closeModal();
   };
 
   return (
     <div className={styles.column}>
       <div className={styles.titleContainer}>
         <p>{stateTitle(state)}</p>
-        <button className={styles.addButton} onClick={handleClickAddTask}>
+        <button className={styles.addButton} onClick={showModal}>
           Add
         </button>
       </div>
       {tasks.map((task, index) => {
         return <Card task={task} key={index.toString() + task.title} />;
       })}
+      <AddModal
+        open={open}
+        title={title}
+        setTitle={setTitle}
+        handleClickAddTask={handleClickAddTask}
+        closeModal={closeModal}
+      />
     </div>
   );
 };
