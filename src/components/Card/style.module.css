@@ -9,7 +9,7 @@
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 .bottomContainer {
@@ -23,4 +23,15 @@
   padding: 4px;
   background: var(--color-success-main);
   border-radius: 4px;
+}
+
+.deleteButton {
+  all: unset;
+  color: var(--color-neutral-10);
+  background: #e35b5b;
+  padding: 0.3rem;
+  font-size: x-small;
+  border-radius: 4px;
+  height: fit-content;
+  cursor: pointer;
 }
