@@ -23,7 +23,3 @@
   height: fit-content;
   cursor: pointer;
 }
-
-.addButton:hover {
-  background: var(--color-neutral-50);
-}
