@@ -6,6 +6,7 @@ import { useStore } from "../../store/store.ts";
 import { shallow } from "zustand/shallow";
 import useAddModal from "../../hooks/useAddModal.ts";
 import { AddModal } from "../AddModal/AddModal.tsx";
+import * as uuid from "uuid";
 
 interface Props {
   state: State;
@@ -17,16 +18,30 @@ export const Column = ({ state }: Props) => {
     shallow,
   );
   const addTasks = useStore((store) => store.addTasks);
+  const draggedTask = useStore((store) => store.draggedTask);
+  const setDraggedTask = useStore((store) => store.setDraggedTask);
+  const moveTask = useStore((store) => store.moveTask);
 
   const { open, showModal, closeModal, title, setTitle } = useAddModal();
 
   const handleClickAddTask = () => {
-    addTasks({ title: title, state });
+    addTasks({ id: uuid.v4(), title: title, state: state });
     closeModal();
   };
 
   return (
-    <div className={styles.column}>
+    <div
+      className={styles.column}
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={() => {
+        moveTask({
+          id: draggedTask?.id ?? 0,
+          title: draggedTask?.title ?? "",
+          state: state,
+        });
+        setDraggedTask(undefined);
+      }}
+    >
       <div className={styles.titleContainer}>
         <p>{stateTitle(state)}</p>
         <button className={styles.addButton} onClick={showModal}>
