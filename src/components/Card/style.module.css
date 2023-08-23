@@ -9,7 +9,9 @@
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: space-between;
+  cursor: move;
+
 }
 
 .bottomContainer {

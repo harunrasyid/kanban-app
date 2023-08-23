@@ -8,9 +8,14 @@ interface Props {
 
 export const Card = ({ task }: Props) => {
   const deleteTask = useStore((store) => store.deleteTask);
+  const setDraggedTask = useStore((store) => store.setDraggedTask);
 
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      draggable
+      onDragStart={() => setDraggedTask(task)}
+    >
       <div>{task.title}</div>
       <div className={styles.bottomContainer}>
         <button

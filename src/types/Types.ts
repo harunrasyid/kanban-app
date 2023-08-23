@@ -5,6 +5,7 @@ export enum State {
 }
 
 export interface TaskType {
+  id: number;
   title: string;
   state: State;
 }
