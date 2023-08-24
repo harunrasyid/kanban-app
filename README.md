@@ -1,7 +1,10 @@
 # Simple Kanban To Do List Application Using Zustand as State Manager
 
 Hi, this is my experimental personal project. In this project i'm exploring zustand state manager
-This project intialized using vite with react-typescript template
+This project intialized using vite with react-typescript template. Some feature of this app
+- Add new tasks
+- Drag and drop to change the tasks status
+- Delete tasks
 
 To run this project
 - Fork or clone this project
