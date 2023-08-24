@@ -1,27 +1,14 @@
-# React + TypeScript + Vite
+# Simple Kanban To Do List Application Using Zustand as State Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hi, this is my experimental personal project. In this project i'm exploring zustand state manager
+This project intialized using vite with react-typescript template
 
-Currently, two official plugins are available:
+To run this project
+- Fork or clone this project
+- Checkout the 'development' branch
+- run npm install
+- run npm run dev
+  
+And you're good to go
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+I'm still learning, and probably for the rest of my life, so feel free to comment or reach me for suggestion or improvement
